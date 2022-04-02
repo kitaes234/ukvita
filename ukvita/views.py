@@ -111,9 +111,7 @@ def dashboard(request):
                 })
             return HttpResponse(json.dumps(response), content_type="application/json")
         elif 'dashboard' in request.get_full_path_info() and 'stats' in request.GET:
-            response = []
-            DaysStats = []
-            CountStats = []
+            response, DaysStats, CountStats = []
             for i in DayNumber.objects.order_by('id'):
                 DaysStats.append(str(str(i.day.day) + '.' + str(i.day.month) + '.' + str(i.day.year))),
                 CountStats.append(str(i.count)),
@@ -126,6 +124,13 @@ def feedback(request):
     if request.method == 'POST':
         print(request.POST)
         if 'last_name' in request.POST and 'first_name' in request.POST and 'address' in request.POST and 'message' in request.POST:
+            SendHelp.objects.create(
+                last_name=request.POST['last_name'],
+                first_name=request.POST['first_name'],
+                address=request.POST['address'],
+                message=request.POST['message']
+            )
+            response = [{"alert_all": "success_feedback"}]
             return render(request, 'feedback.html', autocomplete(request))
     return render(request, 'feedback.html', autocomplete(request))
 
