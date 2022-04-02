@@ -115,7 +115,7 @@ def dashboard(request):
             print(response)
             return HttpResponse(json.dumps(response), content_type="application/json")
         elif 'dashboard' in request.get_full_path_info() and 'stats' in request.GET:
-            response, DaysStats, CountStats = []
+            response, DaysStats, CountStats = [], [], []
             for i in DayNumber.objects.order_by('id'):
                 DaysStats.append(str(str(i.day.day) + '.' + str(i.day.month) + '.' + str(i.day.year))),
                 CountStats.append(str(i.count)),
