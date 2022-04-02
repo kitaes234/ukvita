@@ -75,10 +75,11 @@ def index(request):
             'news': new
         }
         return render(request, 'index.html', context)
-    context = {
-        'news': new
-    }
-    return render(request, 'index.html', context)
+    else:
+        context = {
+            'news': new
+        }
+        return render(request, 'index.html', context)
 
 
 def news(request):
@@ -130,9 +131,17 @@ def feedback(request):
                 address=request.POST['address'],
                 message=request.POST['message']
             )
-            context = [autocomplete(request)]
-            context.append({"alert_all": "success_feedback"})
-            return render(request, 'feedback.html', context)
+            if request.user.is_authenticated:
+                context = {
+                    'nickname': request.user.username,
+                    "alert_all": "success_feedback"
+                }
+                return render(request, 'feedback.html', context)
+            else:
+                context = {
+                    "alert_all": "success_feedback"
+                }
+                return render(request, 'feedback.html', context)
     return render(request, 'feedback.html', autocomplete(request))
 
 
