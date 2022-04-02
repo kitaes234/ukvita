@@ -246,7 +246,6 @@ function WindowCreateStatistics() {
         data.forEach(function (curr_obj) {
             i++
             console.log(curr_obj)
-$('#DashboardRows').empty();
             $('#DashboardRows').append(
                 '<div class="alert alert-warning" id="HelpNumber'+ curr_obj.id +'">' +
                 '<input type="hidden" name="csrfmiddlewaretoken" value="'+ obj.csrf_token +'">' +
@@ -256,8 +255,8 @@ $('#DashboardRows').empty();
                 '<button class="btn btn-danger" onclick="DeleteHelp('+ curr_obj.id +')">Удалить</button>' +
                 '</div>'
             )
-
         });
+        if(i>0){$('#DashboardRows').empty();}
         if(i === 0){
             $("#alert_all").append(
                 '<div class="alert alert-warning alert-dismissible fade show" role="alert">' +
