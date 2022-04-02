@@ -245,8 +245,8 @@ function WindowCreateStatistics() {
       success: function(data) {
         data.forEach(function (curr_obj) {
             i++
-            console.log(curr_obj)
-            $('#DashboardRows').empty();
+            console.log(curr_obj.length)
+$('#DashboardRows').empty();
             $('#DashboardRows').append(
                 '<div class="alert alert-warning" id="HelpNumber'+ curr_obj.id +'">' +
                 '<input type="hidden" name="csrfmiddlewaretoken" value="'+ obj.csrf_token +'">' +
