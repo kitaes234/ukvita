@@ -88,7 +88,7 @@ def news(request):
 
 
 def dashboard(request):
-    if request.method == 'POST' :
+    if request.method == 'POST':
         if 'dashboard' in request.get_full_path_info() and 'header' in request.POST:
             News.objects.create(header=request.POST['header'], subtitle=request.POST['subtitle'], text=request.POST['message'])
             response = []
