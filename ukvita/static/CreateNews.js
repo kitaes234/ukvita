@@ -142,7 +142,7 @@ function WindowCreateDashboard() {
 
 function UpdateStatsButton() {
     $('#canvas').remove();
-    $('#DashboardRows').find(".col-xxl-6").appendTo(
+    $('#DashboardRows').find(".col-xxl-6").after(
       '<canvas id="canvas"></canvas>'
     )
     $.ajax({
