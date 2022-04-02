@@ -246,6 +246,11 @@ function WindowCreateStatistics() {
         data.forEach(function (curr_obj) {
             i++
             console.log(curr_obj)
+            if(i===1){
+                $('#DashboardRows').find('.col-xxl-2')[0].remove()
+                $('#DashboardRows').find('.col-xxl-2')[1].remove()
+                $('#DashboardRows').find('.col-xxl-2')[2].remove()
+            }
             $('#DashboardRows').append(
                 '<div class="alert alert-warning" id="HelpNumber'+ curr_obj.id +'">' +
                 '<input type="hidden" name="csrfmiddlewaretoken" value="'+ obj.csrf_token +'">' +
