@@ -102,9 +102,9 @@ function WindowCreateDashboard() {
     $('#DashboardRows').append(
       '<div class="col-xxl-6">' +
       '<canvas id="canvas"></canvas>' +
-      '<button class="btn btn-danger" onclick="UpdateStatsButton()">Обновить</button>' +
       '</div>' +
       '<div class="container-fluid d-flex flex-row">' +
+        '<button class="btn btn-danger" onclick="UpdateStatsButton()">Обновить</button>' +
         '<button class="btn btn-primary m-2" onclick="updateLineChart()">Назад</button>' +
         '<span class=" align-middle">Введите первую дату:</span>' +
         '<span class=" align-middle">Введите вторую дату:</span>' +
