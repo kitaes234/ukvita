@@ -128,22 +128,11 @@ function WindowCreateDashboard() {
               "backgroundColor": "rgb(0, 152, 228)", // синий
               "lineTension": 0.1 // резкость кривой
             }]
-          },
-          "options": {
-                                 // Установите для отображения только первый квадрант
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            min: 0
-                        }
-                    }]
-                }
-            }
+          }
         };
         var myLineChart = new Chart($("#canvas").get(0).getContext("2d"), {
           "type": 'line',
-          "data": testData.data,
-          "options": testData.options
+          "data": testData.data
         });
         var myLineChart;
       }
@@ -176,8 +165,7 @@ function UpdateStatsButton() {
         };
         var myLineChart = new Chart($("#canvas").get(0).getContext("2d"), {
           "type": 'line',
-          "data": testData.data,
-          "options": testData.options
+          "data": testData.data
         });
         var myLineChart;
       }
