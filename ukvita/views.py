@@ -112,7 +112,6 @@ def dashboard(request):
                     'address': i.address,
                     'message': i.message
                 })
-            print(response)
             return HttpResponse(json.dumps(response), content_type="application/json")
         elif 'dashboard' in request.get_full_path_info() and 'stats' in request.GET:
             response, DaysStats, CountStats = [], [], []
