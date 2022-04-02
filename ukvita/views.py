@@ -98,6 +98,8 @@ def dashboard(request):
             response = [{'status': 'True'}]
             SendHelp.objects.filter(id=request.POST['id']).delete()
             return HttpResponse(json.dumps(response), content_type="application/json")
+        else:
+            return render(request, 'dashboard.html', autocomplete(request))
     elif request.method == 'GET':
         if 'dashboard' in request.get_full_path_info() and 'input' in request.GET:
             response = []
@@ -119,7 +121,9 @@ def dashboard(request):
                 CountStats.append(str(i.count)),
             response.append({'0': DaysStats, '1': CountStats})
             return HttpResponse(json.dumps(response), content_type="application/json")
-    return render(request, 'dashboard.html', autocomplete(request))
+        else:
+            return render(request, 'dashboard.html', autocomplete(request))
+
 
 
 def feedback(request):

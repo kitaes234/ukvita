@@ -190,7 +190,7 @@ function DeleteHelp(i) {
                 '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
                 '</div>')
             $("#HelpNumber"+i).remove()
-            if($('#DashboardRows').length === 0){
+            if($("#DashboardRows").find(".alert").length === 0){
                 $('#DashboardRows').append(
                     '<div class="row" id="DashboardRows">' +
                     '<div class="col-xxl-2" style="padding: 1.5rem 2rem;width: 245.16px;">' +
