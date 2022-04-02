@@ -246,7 +246,7 @@ function WindowCreateStatistics() {
         data.forEach(function (curr_obj) {
             i++
             console.log(curr_obj)
-            $('#DashboardRows').appendTo(
+            $('#DashboardRows').append(
                 '<div class="alert alert-warning" id="HelpNumber'+ curr_obj.id +'">' +
                 '<input type="hidden" name="csrfmiddlewaretoken" value="'+ obj.csrf_token +'">' +
                 '<p>Имя и Фамилия: ' + curr_obj.last_name + ' ' + curr_obj.first_name + '</p>' +
