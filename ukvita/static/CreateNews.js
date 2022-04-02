@@ -245,7 +245,7 @@ function WindowCreateStatistics() {
       success: function(data) {
         data.forEach(function (curr_obj) {
             i++
-            console.log(curr_obj.length)
+            console.log(curr_obj)
             $('#DashboardRows').empty();
             $('#DashboardRows').append(
                 '<div class="alert alert-warning" id="HelpNumber'+ curr_obj.id +'">' +

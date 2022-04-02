@@ -123,7 +123,7 @@ def dashboard(request):
 
 def feedback(request):
     if request.method == 'POST':
-        print(request.POST)
+
         if 'last_name' in request.POST and 'first_name' in request.POST and 'address' in request.POST and 'message' in request.POST:
             SendHelp.objects.create(
                 last_name=request.POST['last_name'],
@@ -131,17 +131,18 @@ def feedback(request):
                 address=request.POST['address'],
                 message=request.POST['message']
             )
+            print(request.POST)
             if request.user.is_authenticated:
                 context = {
                     'nickname': request.user.username,
-                    "alert_all": "success_feedback"
+                    "alert_all": "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Успешно!</strong> Обращение отправлено!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>"
                 }
-                return render(request, 'feedback.html', context)
+                return redirect('/', context)
             else:
                 context = {
                     "alert_all": "success_feedback"
                 }
-                return render(request, 'feedback.html', context)
+                return redirect('/', context)
     return render(request, 'feedback.html', autocomplete(request))
 
 
