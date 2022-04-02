@@ -106,8 +106,8 @@ function WindowCreateDashboard() {
       '<div class="container-fluid d-flex flex-row">' +
         '<button class="btn btn-danger m-2" onclick="UpdateStatsButton()">Обновить</button>' +
         '<button class="btn btn-primary m-2" onclick="updateLineChart()">Назад</button>' +
-        '<span class=" align-middle m-2">Введите первую дату:</span>' +
-        '<span class=" align-middle m-2">Введите вторую дату:</span>' +
+        '<span class=" align-middle m-3">Введите первую дату:</span>' +
+        '<span class=" align-middle m-3">Введите вторую дату:</span>' +
         '<button class="btn btn-primary m-2" onclick="updateLineChart()">Вперед</button>' +
       '</div>'
     )
