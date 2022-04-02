@@ -17,6 +17,15 @@ function back_to_dashboard() {
         '<div class="col-xxl-2" style="padding: 1.5rem 2rem;width: 245.16px;">' +
         '<div class="card bg-dark text-white">' +
         '<div class="card-body" style="text-align:  center; padding: 0.5rem;">' +
+        '<h5 class="card-title unselectable">Ред. новостей</h5>' +
+        '<svg class="bi" width="100" height="100"><use xlink:href="#pencil-square"/></svg>' +
+        '<button href="#" class="btn btn-primary unselectable" style="margin-top: 3px" onclick="WindowCreateStatistics()">Редактировать</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-xxl-2" style="padding: 1.5rem 2rem;width: 245.16px;">' +
+        '<div class="card bg-dark text-white">' +
+        '<div class="card-body" style="text-align:  center; padding: 0.5rem;">' +
         '<h5 class="card-title unselectable">Статистика</h5>' +
         '<svg class="bi" width="100" height="100"><use xlink:href="#analytics"/></svg>' +
         '<button href="#" class="btn btn-primary unselectable" style="margin-top: 3px" onclick="WindowCreateDashboard()">Просмотреть</button>' +
@@ -40,13 +49,13 @@ function WindowCreateNews() {
     $('#DashboardRows').empty();
     let csrf_token = $('[type=hidden][name=csrfmiddlewaretoken]').val()
     $('#DashboardRows').append(
-        '<div class="col-xxl-12">' +
+        '<div class="col-xxl-3">' +
         '<div class="card bg-dark text-white">' +
         '<div class="card-body">' +
         '<div class="card-text" style="font-size: 18px;font-family: ui-monospace;display: flex;">' +
-        '<p style="margin-bottom: 2rem;font-family: sans-serif;max-width: fit-content;height: min-content;">' +
+        '<p style="margin-bottom: 1rem;font-family: sans-serif;max-width: fit-content;height: min-content;">' +
         '<em style="font-size: 22px;"><b style="font-size: 28px;">Создание новости</b></em></p>' +
-        '<button onclick="back_to_dashboard()" style="height: 3rem; width: 3rem; margin-left: 4rem; background: #f0f8ff00; border: #0000ff00; color: white;">' +
+        '<button onclick="back_to_dashboard()" style="height: 3rem; width: 3rem; margin-left: 1.85rem; background: #f0f8ff00; border: #0000ff00; color: white;">' +
         '<span style="font-size: 20px;">&#10006;</span>' +
         '</button>' +
         '</div>' +
@@ -62,10 +71,10 @@ function WindowCreateNews() {
         '</div>' +
         '<div id="email_flex">' +
         '<p class="text-cursive-museosan" style="font-size: 18px;font-family: \'museosanscyrl-300\', cursive;">Текст новости:</p>' +
-        '<textarea rows="5" cols="50" class="Supported" id="message" name="message" style="border: 0px;border-radius: 5px;"></textarea>' +
+        '<textarea rows="5" cols="44" class="Supported" id="message" name="message" style="border: 0px;border-radius: 5px;"></textarea>' +
         '</div>' +
         '<input type="hidden" name="csrfmiddlewaretoken" value="'+ obj.csrf_token +'">' +
-        '<button class="btn btn-primary" id="Supported_btn" onclick="CreateNews()" name="Supported" style="width: 11rem;margin-top: 1rem;font-size: 20px;">Отправить</button>' +
+        '<button class="btn btn-primary" id="Supported_btn" onclick="CreateNews()" name="Supported" style="width: 11rem;margin: 1rem auto 0.1rem;font-size: 20px;">Отправить</button>' +
         '</div>' +
         '</div>' +
         '</div>' +
