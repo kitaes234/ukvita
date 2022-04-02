@@ -130,8 +130,9 @@ def feedback(request):
                 address=request.POST['address'],
                 message=request.POST['message']
             )
-            response = [{"alert_all": "success_feedback"}]
-            return render(request, 'feedback.html', autocomplete(request))
+            context = [autocomplete(request)]
+            context.append({"alert_all": "success_feedback"})
+            return render(request, 'feedback.html', context)
     return render(request, 'feedback.html', autocomplete(request))
 
 
