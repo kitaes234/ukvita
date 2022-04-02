@@ -256,7 +256,7 @@ function WindowCreateStatistics() {
                 '</div>'
             )
         });
-        if(i>0){$('#DashboardRows').empty();}
+
         if(i === 0){
             $("#alert_all").append(
                 '<div class="alert alert-warning alert-dismissible fade show" role="alert">' +
