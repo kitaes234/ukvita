@@ -70,34 +70,36 @@
 <div class="d-flex flex-column p-3 text-black bg-white" style="overflow: auto;">
     <div class="row" id="DashboardRows">
       <div class="col-xxl-12">
-         <div class="card bg-dark text-white">
-         <div class="card-body">
-         <div class="card-text" style="font-size: 18px;font-family: ui-monospace;display: flex;">
-         <p style="margin-bottom: 1rem;font-family: sans-serif;max-width: fit-content;height: min-content;">
-         <em style="font-size: 22px;"><b style="font-size: 24px;">Расскажите о своей проблеме</b></em></p>
-         </div>
-         <div class="card-text feedback-card" style="width: 100%;">
-         <div id="email_flex">
-            <p class="text-cursive-museosan" style="font-size: 18px;font-family: \'museosanscyrl-300\', cursive;">Имя:</p>
-            <input type="text" class="Supported" id="last_name" name="last_name" value="" style="height: 2rem;border: 0;border-radius: 5px;">
-         </div>
-         <div id="email_flex">
-            <p class="text-cursive-museosan" style="font-size: 18px;font-family: \'museosanscyrl-300\', cursive;">Фамилия:</p>
-            <input type="text" class="Supported" id="first_name" name="first_name" value="" style="height: 2rem;border: 0;border-radius: 5px;">
-         </div>
-         <div id="email_flex">
-            <p class="text-cursive-museosan" style="font-size: 18px;font-family: \'museosanscyrl-300\', cursive;">Адресс:</p>
-            <input type="text" class="Supported" id="address" name="address" value="" style="height: 2rem;border: 0;border-radius: 5px;">
-         </div>
-         <div id="email_flex">
-            <p class="text-cursive-museosan" style="font-size: 18px;font-family: \'museosanscyrl-300\', cursive;">Проблема:</p>
-            <textarea rows="5" cols="50" class="Supported" id="message" name="message" style="border: 0px;border-radius: 5px;"></textarea>
-         </div>
-         <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-         <button class="btn btn-primary" id="Supported_btn" type="submit" name="Supported" style="width: 11rem;margin-top: 1rem;font-size: 20px;">Отправить</button>
-         </div>
-         </div>
-         </div>
+        <div class="card bg-dark text-white">
+          <div class="card-body">
+            <div class="card-text" style="font-size: 18px;font-family: ui-monospace;display: flex;">
+              <p style="margin-bottom: 1rem;font-family: sans-serif;max-width: fit-content;height: min-content;">
+              <em style="font-size: 22px;"><b style="font-size: 24px;">Расскажите о своей проблеме</b></em></p>
+            </div>
+            <div class="card-text feedback-card" style="width: 100%;">
+              <form method="post">
+                <div id="email_flex">
+                      <p class="text-cursive-museosan" style="font-size: 18px;font-family: \'museosanscyrl-300\', cursive;">Имя:</p>
+                      <input type="text" class="Supported" id="last_name" name="last_name" value="" style="height: 2rem;border: 0;border-radius: 5px;">
+                </div>
+                <div id="email_flex">
+                   <p class="text-cursive-museosan" style="font-size: 18px;font-family: \'museosanscyrl-300\', cursive;">Фамилия:</p>
+                   <input type="text" class="Supported" id="first_name" name="first_name" value="" style="height: 2rem;border: 0;border-radius: 5px;">
+                </div>
+                <div id="email_flex">
+                   <p class="text-cursive-museosan" style="font-size: 18px;font-family: \'museosanscyrl-300\', cursive;">Адресс:</p>
+                   <input type="text" class="Supported" id="address" name="address" value="" style="height: 2rem;border: 0;border-radius: 5px;">
+                </div>
+                <div id="email_flex">
+                   <p class="text-cursive-museosan" style="font-size: 18px;font-family: \'museosanscyrl-300\', cursive;">Проблема:</p>
+                   <textarea rows="5" cols="50" class="Supported" id="message" name="message" style="border: 0px;border-radius: 5px;"></textarea>
+                </div>
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                <button class="btn btn-primary" id="Supported_btn" type="submit" name="Supported" style="width: 11rem;margin-top: 1rem;font-size: 20px;">Отправить</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 </div>
