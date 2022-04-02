@@ -98,7 +98,7 @@ function CreateNews() {
 var testData;
 
 function WindowCreateDashboard() {
-    $('#DashboardRows').remove();
+    $('#DashboardRows').empty();
     $('#DashboardRows').append(
       '<div class="col-xxl-6">' +
       '<canvas id="canvas"></canvas>' +
@@ -141,7 +141,7 @@ function WindowCreateDashboard() {
 }
 
 function UpdateStatsButton() {
-    $('#canvas').empty();
+    $('#canvas').remove();
     $('#DashboardRows').find("#col-xxl-6").append(
       '<canvas id="canvas"></canvas>'
     )
