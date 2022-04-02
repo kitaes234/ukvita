@@ -87,40 +87,46 @@ def news(request):
 
 
 def dashboard(request):
-    if request.method == 'POST' and 'dashboard' in request.get_full_path_info() and 'header' in request.POST:
-        News.objects.create(header=request.POST['header'], subtitle=request.POST['subtitle'], text=request.POST['message'])
-        response = []
-        response.append({"alert_all": "success_news"})
-        return HttpResponse(json.dumps(response), content_type="application/json")
-    elif request.method == 'POST' and 'dashboard' in request.get_full_path_info() and 'method' in request.POST and request.POST['method'] == 'delete':
-        response = [{'status': 'True'}]
-        SendHelp.objects.filter(id=request.POST['id']).delete()
-        return HttpResponse(json.dumps(response), content_type="application/json")
-    elif request.method == 'GET' and 'dashboard' in request.get_full_path_info() and 'input' in request.GET:
-        response = []
-        HelpUser = SendHelp.objects.order_by('id')
-        for i in HelpUser:
-            response.append({
-                'id': i.id,
-                'last_name': i.last_name,
-                'first_name': i.first_name,
-                'address': i.address,
-                'message': i.message
-            })
-        return HttpResponse(json.dumps(response), content_type="application/json")
-    elif request.method == 'GET' and 'dashboard' in request.get_full_path_info() and 'stats' in request.GET:
-        response = []
-        DaysStats = []
-        CountStats = []
-        for i in DayNumber.objects.order_by('id'):
-            DaysStats.append(str(str(i.day.day) + '.' + str(i.day.month) + '.' + str(i.day.year))),
-            CountStats.append(str(i.count)),
-        response.append({'0': DaysStats, '1': CountStats})
-        return HttpResponse(json.dumps(response), content_type="application/json")
+    if request.method == 'POST' :
+        if 'dashboard' in request.get_full_path_info() and 'header' in request.POST:
+            News.objects.create(header=request.POST['header'], subtitle=request.POST['subtitle'], text=request.POST['message'])
+            response = []
+            response.append({"alert_all": "success_news"})
+            return HttpResponse(json.dumps(response), content_type="application/json")
+        elif 'dashboard' in request.get_full_path_info() and 'method' in request.POST and request.POST['method'] == 'delete':
+            response = [{'status': 'True'}]
+            SendHelp.objects.filter(id=request.POST['id']).delete()
+            return HttpResponse(json.dumps(response), content_type="application/json")
+    elif request.method == 'GET':
+        if 'dashboard' in request.get_full_path_info() and 'input' in request.GET:
+            response = []
+            HelpUser = SendHelp.objects.order_by('id')
+            for i in HelpUser:
+                response.append({
+                    'id': i.id,
+                    'last_name': i.last_name,
+                    'first_name': i.first_name,
+                    'address': i.address,
+                    'message': i.message
+                })
+            return HttpResponse(json.dumps(response), content_type="application/json")
+        elif 'dashboard' in request.get_full_path_info() and 'stats' in request.GET:
+            response = []
+            DaysStats = []
+            CountStats = []
+            for i in DayNumber.objects.order_by('id'):
+                DaysStats.append(str(str(i.day.day) + '.' + str(i.day.month) + '.' + str(i.day.year))),
+                CountStats.append(str(i.count)),
+            response.append({'0': DaysStats, '1': CountStats})
+            return HttpResponse(json.dumps(response), content_type="application/json")
     return render(request, 'dashboard.html', autocomplete(request))
 
 
 def feedback(request):
+    if request.method == 'POST':
+        print(request.POST)
+        if 'last_name' in request.POST and 'first_name' in request.POST and 'address' in request.POST and 'message' in request.POST:
+            return render(request, 'feedback.html', autocomplete(request))
     return render(request, 'feedback.html', autocomplete(request))
 
 
